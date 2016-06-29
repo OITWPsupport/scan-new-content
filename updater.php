@@ -1,6 +1,8 @@
 <?php
 
-class Boise_State_Test_Plugin_Updater {
+// Thanks to https://www.smashingmagazine.com/2015/08/deploy-wordpress-plugins-with-github-using-transients/
+
+class Boise_State_Scan_New_Content_Plugin_Updater {
 
 	private $file;
 
