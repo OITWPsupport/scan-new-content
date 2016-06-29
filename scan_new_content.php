@@ -13,7 +13,7 @@ if( ! class_exists( 'Boise_State_Scan_New_Content_Plugin_Updater' ) ){
 	include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 }
 
-$updater = new Smashing_Updater( __FILE__ );
+$updater = new Boise_State_Scan_New_Content_Plugin_Updater( __FILE__ );
 $updater->set_username( 'davidmlentz' );
 $updater->set_repository( 'scan-new-content' );
 /*
