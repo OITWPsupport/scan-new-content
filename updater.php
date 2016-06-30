@@ -16,8 +16,6 @@ class Boise_State_Scan_New_Content_Plugin_Updater {
 
 	private $repository;
 
-	private $authorize_token;
-
 	private $github_response;
 
 	public function __construct( $file ) {
@@ -43,26 +41,14 @@ class Boise_State_Scan_New_Content_Plugin_Updater {
 		$this->repository = $repository;
 	}
 
-	public function authorize( $token ) {
-		$this->authorize_token = $token;
-	}
-
 	private function get_repository_info() {
 	    if ( is_null( $this->github_response ) ) { // Do we have a response?
 	        $request_uri = sprintf( 'https://api.github.com/repos/%s/%s/releases', $this->username, $this->repository ); // Build URI
-
-	        if( $this->authorize_token ) { // Is there an access token?
-	            $request_uri = add_query_arg( 'access_token', $this->authorize_token, $request_uri ); // Append it
-	        }
 
 	        $response = json_decode( wp_remote_retrieve_body( wp_remote_get( $request_uri ) ), true ); // Get JSON and parse it
 
 	        if( is_array( $response ) ) { // If it is an array
 	            $response = current( $response ); // Get the first item
-	        }
-
-	        if( $this->authorize_token ) { // Is there an access token?
-	            $response['zipball_url'] = add_query_arg( 'access_token', $this->authorize_token, $response['zipball_url'] ); // Update our zip url with token
 	        }
 
 	        $this->github_response = $response; // Set it to our property
@@ -122,9 +108,9 @@ set_site_transient('update_plugins', null);
 					'requires'					=> '3.3',
 					'tested'						=> '4.4.1',
 					'rating'						=> '100.0',
-					'num_ratings'				=> '10823',
-					'downloaded'				=> '14249',
-					'added'							=> '2016-01-05',
+					'num_ratings'				=> '1',
+					'downloaded'				=> '1',
+					'added'							=> '2016-07-01',
 					'version'			=> $this->github_response['tag_name'],
 					'author'			=> $this->plugin["AuthorName"],
 					'author_profile'	=> $this->plugin["AuthorURI"],
