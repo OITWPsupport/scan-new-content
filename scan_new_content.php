@@ -3,7 +3,7 @@
 Plugin Name: Boise State Scan New Content
 Description: Triggers an accessibility scan of each new or updated page and post. Adds an 
 admin menu and form for maintaining associated info.
-Version: 0.1.13
+Version: 0.1.14
 Author: David Lentz
  */
 
