@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boise State Scan New Content
 Description: Triggers an accessibility scan of each new or updated page and post. Adds an admin menu and form for maintaining associated info.
-Version: 0.0.3
+Version: 0.0.4
 Author: David Lentz
  */
 
@@ -74,6 +74,8 @@ function bsu_a11y_options_page() {
 	// The message to show when the form is submitted. Starts empty.
 	$submitMessage = '';
 
+	$opt_val2 = 0;
+	
 	// If the form was submitted, update WordPress with the new values.
 	if (isset($_POST["submitted"]) && $_POST["submitted"] == '1') {
 		$opt_val1 = $_POST[$opt_name1];
