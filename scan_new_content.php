@@ -2,7 +2,7 @@
 /*
 Plugin Name: Boise State Scan New Content
 Description: Triggers an accessibility scan of each new or updated page and post. Adds an admin menu and form for maintaining associated info.
-Version: 0.0.5
+Version: 0.0.6
 Author: David Lentz
  */
 
@@ -25,7 +25,9 @@ $updater->initialize();
 
 function scan_new_content( $ID ){
 
-	$scanner_url = 'http://52.201.144.56/scan.php';
+	// scancsv.php is included in this repository. 
+	// It needs to be placed somewhere outside WordPress, on any available PHP server.
+	$scanner_url = 'http://52.201.144.56/scancsv.php';
 	$admin_email = get_option( 'admin_email' );
 	$a11y_contact_email = get_option( 'a11y_contact_email' );
 	$a11y_auto_scan = get_option( 'a11y_auto_scan' );
